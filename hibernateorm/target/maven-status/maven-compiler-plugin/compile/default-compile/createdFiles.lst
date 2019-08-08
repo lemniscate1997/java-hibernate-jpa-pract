@@ -1,0 +1,5 @@
+com/mycompany/model/HelloWorld.class
+com/mycompany/hibernateorm/HibernateORMTest.class
+com/mycompany/util/HibernateUtil.class
+com/mycompany/dao/HelloWorldDaoImpl.class
+com/mycompany/dao/HelloWorldDao.class
