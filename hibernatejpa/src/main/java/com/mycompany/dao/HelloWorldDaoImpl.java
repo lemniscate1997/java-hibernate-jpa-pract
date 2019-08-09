@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.dao;
 
 import com.mycompany.model.HelloWorld;
@@ -24,7 +19,6 @@ public class HelloWorldDaoImpl implements HelloWorldDao {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(message);
-            System.out.println("########### Created");
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
@@ -52,7 +46,6 @@ public class HelloWorldDaoImpl implements HelloWorldDao {
             HelloWorld old = entityManager.find(HelloWorld.class, id);
             old.setMessage(message.getMessage());
             entityManager.getTransaction().commit();
-            System.out.println("########### Updated");
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
                 entityManager.getTransaction().rollback();
@@ -79,7 +72,6 @@ public class HelloWorldDaoImpl implements HelloWorldDao {
             HelloWorld old = entityManager.find(HelloWorld.class, id);
             entityManager.remove(old);
             entityManager.getTransaction().commit();
-            System.out.println("########### Removed");
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
                 entityManager.getTransaction().rollback();

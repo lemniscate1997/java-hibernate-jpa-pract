@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.dao;
 
 import com.mycompany.model.UserProfile;
 import com.mycompany.util.EntityManagerUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -24,13 +20,11 @@ public class UserProfileDaoImpl implements UserProfileDao {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(user);
-            System.out.println("########### Created");
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
                 entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
         }
     }
 
@@ -40,7 +34,6 @@ public class UserProfileDaoImpl implements UserProfileDao {
         try {
             list = entityManager.createQuery("from UserProfile ", UserProfile.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -50,14 +43,11 @@ public class UserProfileDaoImpl implements UserProfileDao {
         try {
             entityManager.getTransaction().begin();
             UserProfile old = entityManager.find(UserProfile.class, id);
-            //
             entityManager.getTransaction().commit();
-            System.out.println("########### Updated");
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
                 entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
         }
     }
 
@@ -67,7 +57,6 @@ public class UserProfileDaoImpl implements UserProfileDao {
         try {
             message = entityManager.find(UserProfile.class, id);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return message;
     }
@@ -79,12 +68,10 @@ public class UserProfileDaoImpl implements UserProfileDao {
             UserProfile old = entityManager.find(UserProfile.class, id);
             entityManager.remove(old);
             entityManager.getTransaction().commit();
-            System.out.println("########### Removed");
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {
                 entityManager.getTransaction().rollback();
             }
-            e.printStackTrace();
         }
     }
 

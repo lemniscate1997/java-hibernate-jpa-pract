@@ -1,4 +1,4 @@
-package com.mycompany.util;
+package com.relation.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
