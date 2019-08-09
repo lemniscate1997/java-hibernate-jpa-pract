@@ -3,6 +3,7 @@ package com.mycompany.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 
 /**
  *
@@ -77,7 +78,7 @@ public class UserProfile implements Serializable {
 
     @Override
     public String toString() {
-        return "UserProfile{" + "id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + '}';
+        return ReflectionToStringBuilder.toString(this);
     }
 
 }

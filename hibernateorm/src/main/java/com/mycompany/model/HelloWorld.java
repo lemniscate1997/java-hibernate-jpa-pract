@@ -2,6 +2,7 @@ package com.mycompany.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 
 /**
  *
@@ -39,7 +40,7 @@ public class HelloWorld implements Serializable {
 
     @Override
     public String toString() {
-        return "HelloWorld{" + "id=" + id + ", message=" + message + '}';
+        return ReflectionToStringBuilder.toString(this);
     }
 
 }
