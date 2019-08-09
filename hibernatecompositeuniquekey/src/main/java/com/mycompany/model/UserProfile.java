@@ -1,8 +1,8 @@
 package com.mycompany.model;
 
-import com.sun.istack.internal.NotNull;
 import javax.persistence.*;
 import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 
 /**
  *
