@@ -17,8 +17,8 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "proposal")
-@SequenceGenerator(name="proposal_attachment_id_seq")
-@SequenceGenerator(name="proposal_personnel_id_seq")
+//@SequenceGenerator(name="proposal_attachment_id_seq")
+//@SequenceGenerator(name="proposal_personnel_id_seq")
 public class Proposal  implements Serializable {
 
     @Id
@@ -34,28 +34,28 @@ public class Proposal  implements Serializable {
     private String comment;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
+//            ,orphanRemoval = true
     )
-    @CollectionId(
-        columns = @Column(name="proposal_personnel_id"), 
-        type=@Type(type="long"), 
-        generator = "proposal_personnel_id_seq"
-    )
-//    @JoinColumn(name = "proposal_id")
+//    @CollectionId(
+//        columns = @Column(name="proposal_personnel_id"), 
+//        type=@Type(type="long"), 
+//        generator = "proposal_personnel_id_seq"
+//    )
+    @JoinColumn(name = "proposal_id")
     private List<Personnel> personnels;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
+//            ,orphanRemoval = true
     )
-    @Column(unique = true)
-    @CollectionId(
-        columns = @Column(name="proposal_attachment_id"), 
-        type=@Type(type="long"), 
-        generator = "proposal_attachment_id_seq"
-    )
-//    @JoinColumn(name = "proposal_id")
+//    @Column(unique = true)
+//    @CollectionId(
+//        columns = @Column(name="proposal_attachment_id"), 
+//        type=@Type(type="long"), 
+//        generator = "proposal_attachment_id_seq"
+//    )
+    @JoinColumn(name = "proposal_id")
     private List<Attachment> attachments;
 
     public Proposal() {
@@ -83,9 +83,13 @@ public class Proposal  implements Serializable {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    public List<Personnel> getPersonnels() {
+        return personnels;
+    }
     
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this);
-    }
+    }    
 }
