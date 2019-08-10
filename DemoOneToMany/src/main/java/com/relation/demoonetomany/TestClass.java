@@ -30,7 +30,7 @@ public class TestClass {
 //        repository.addPraposal(proposal);
 //        logger.info("+++++" + proposal);
 
-//        logger.info("+++++" + repository.getProposal(Long.valueOf(1)));
+        logger.info("+++++" + repository.getProposal(Long.valueOf(1)));
 
 //        repository.removePraposal(Long.valueOf(2));
         

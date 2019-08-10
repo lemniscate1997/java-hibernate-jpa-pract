@@ -30,15 +30,13 @@ public class Proposal  implements Serializable {
     private String comment;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
     )
     @JoinColumn(name = "personal_id")
     private List<Personnel> personnels;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
     )
     @JoinColumn(name = "attachmen_id")
     private List<Attachment> attachments;
