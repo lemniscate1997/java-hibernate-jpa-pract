@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -15,6 +17,8 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
  */
 @Entity
 @Table(name = "proposal")
+@SequenceGenerator(name="proposal_attachment_id_seq")
+@SequenceGenerator(name="proposal_personnel_id_seq")
 public class Proposal  implements Serializable {
 
     @Id
@@ -30,15 +34,28 @@ public class Proposal  implements Serializable {
     private String comment;
 
     @OneToMany(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
-    @JoinColumn(name = "personal_id")
+    @CollectionId(
+        columns = @Column(name="proposal_personnel_id"), 
+        type=@Type(type="long"), 
+        generator = "proposal_personnel_id_seq"
+    )
+//    @JoinColumn(name = "proposal_id")
     private List<Personnel> personnels;
 
     @OneToMany(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
-    @JoinColumn(name = "attachmen_id")
+    @Column(unique = true)
+    @CollectionId(
+        columns = @Column(name="proposal_attachment_id"), 
+        type=@Type(type="long"), 
+        generator = "proposal_attachment_id_seq"
+    )
+//    @JoinColumn(name = "proposal_id")
     private List<Attachment> attachments;
 
     public Proposal() {

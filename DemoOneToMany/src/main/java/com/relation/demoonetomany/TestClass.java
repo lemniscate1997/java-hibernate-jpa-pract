@@ -19,18 +19,18 @@ public class TestClass {
     public static void main(String[] args) {
 
         ProposalPojo repository = new ProposalPojoImpl();
-//        byte[] b = "rahul".getBytes();
+//        byte[] b = "hello".getBytes();
 //        List<Personnel> plist = new ArrayList<>();
-//        plist.add(new Personnel("Chintan", QualificationLevel.Pro, "9656231296"));
+//        plist.add(new Personnel("Rahul", QualificationLevel.Pro, "9656235696"));
 //
 //        List<Attachment> alist = new ArrayList<>();
-//        alist.add(new Attachment("new file", "1232", LocalDateTime.MAX, b));
+//        alist.add(new Attachment("old file", "1232", LocalDateTime.MAX, b));
 //
-//        Proposal proposal = new Proposal("My praposal attachment", "new comment for this", plist, alist);
+//        Proposal proposal = new Proposal("My praposal attachment", "new comment", plist, alist);
 //        repository.addPraposal(proposal);
 //        logger.info("+++++" + proposal);
 
-        logger.info("+++++" + repository.getProposal(Long.valueOf(1)));
+//        logger.info("+++++" + repository.getProposal(Long.valueOf(1)));
 
 //        repository.removePraposal(Long.valueOf(2));
         
@@ -38,7 +38,7 @@ public class TestClass {
 //        p.setComment("Nothig to comment");
 //        repository.updatePraposal(Long.valueOf(1), p);
 
-//        logger.info("+++++" + repository.getProposals());
+//        logger.info("+++++" + repository.getProposals().size());
 
     }
 }

@@ -1,6 +1,7 @@
 package com.relation.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.time.LocalDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
