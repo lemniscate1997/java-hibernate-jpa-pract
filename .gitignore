@@ -2,3 +2,5 @@ hibernatecompositeuniquekey/target
 hibernatejpa/target
 hibernateorm/target
 DemoOneToOne/target
+DemoOneToMany/target
+shoppingcart/target
