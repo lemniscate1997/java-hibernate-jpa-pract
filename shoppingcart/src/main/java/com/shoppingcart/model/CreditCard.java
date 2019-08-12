@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 @Entity
 @Table(name = "creditcard")
-public class CreditCard {
+public class CreditCard extends BillingDetails{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

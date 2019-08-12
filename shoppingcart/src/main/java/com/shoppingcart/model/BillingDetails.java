@@ -11,6 +11,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
  */
 @Entity
 @Table(name = "billingdetails")
+@Inheritance(
+    strategy = InheritanceType.JOINED
+)
 public class BillingDetails {
 
     @Id
@@ -20,14 +23,6 @@ public class BillingDetails {
     @Column(name = "ownername", length = 30)
     @NotNull
     private String ownername;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "credit_card_id")
-    private CreditCard credit_card_id;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bank_account_id")
-    private BankAccount bank_account_id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @NotNull
@@ -54,22 +49,6 @@ public class BillingDetails {
 
     public void setOwnername(String ownername) {
         this.ownername = ownername;
-    }
-
-    public CreditCard getCredit_card_id() {
-        return credit_card_id;
-    }
-
-    public void setCredit_card_id(CreditCard credit_card_id) {
-        this.credit_card_id = credit_card_id;
-    }
-
-    public BankAccount getBank_account_id() {
-        return bank_account_id;
-    }
-
-    public void setBank_account_id(BankAccount bank_account_id) {
-        this.bank_account_id = bank_account_id;
     }
 
     public Users getUser() {

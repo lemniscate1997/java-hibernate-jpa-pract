@@ -11,7 +11,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  */
 @Entity
 @Table(name = "bankaccount")
-public class BankAccount {
+public class BankAccount extends BillingDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
