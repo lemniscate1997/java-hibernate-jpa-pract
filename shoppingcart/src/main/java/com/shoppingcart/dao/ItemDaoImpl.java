@@ -24,8 +24,8 @@ public class ItemDaoImpl implements ItemDao {
     public void create(int sallerId, Item item) {
         try {
             entityManager.getTransaction().begin();
-            Users user = entityManager.find(Users.class, sallerId);
-            user.getItems().add(item);
+            item.setSaller(entityManager.find(Users.class, sallerId));
+            entityManager.persist(item);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction() != null) {

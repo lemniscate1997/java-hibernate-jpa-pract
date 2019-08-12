@@ -38,6 +38,7 @@ public class UserDaoImpl implements UserDao{
         Users person = null;
         try {
             person = entityManager.find(Users.class, id);
+            System.out.println(""+person);
         } catch (Exception e) {
         }
         return person;
